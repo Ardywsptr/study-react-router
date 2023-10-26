@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Form, useLoaderData } from "react-router-dom";
 import { getContact } from "../contacts";
