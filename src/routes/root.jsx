@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-import { Form, Link, NavLink, Outlet, redirect, useLoaderData, useNavigation } from "react-router-dom";
+import { Form, Link, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from "react-router-dom";
 import { createContact, getContacts } from "../contacts";
 import { useEffect } from "react";
 
@@ -19,6 +19,7 @@ export async function action() {
 export default function Root() {
    const { contacts, q } = useLoaderData();
    const navigation = useNavigation();
+   const submit = useSubmit();
 
    useEffect(() => {
       document.getElementById("q").value = q;
@@ -30,7 +31,7 @@ export default function Root() {
             <h1>React Router Contacts</h1>
             <div>
                <Form id="search-form" role="search">
-                  <input id="q" aria-label="Search contacts" placeholder="Search" type="search" name="q" defaultValue={q} />
+                  <input id="q" aria-label="Search contacts" placeholder="Search" type="search" name="q" defaultValue={q} onChange={(e) => submit(e.currentTarget.form)} />
                   <div id="search-spinner" aria-hidden hidden={true} />
                   <div className="sr-only" aria-live="polite"></div>
                </Form>
