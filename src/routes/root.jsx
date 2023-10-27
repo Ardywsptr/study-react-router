@@ -40,16 +40,16 @@ export default function Root() {
                               className={({ isActive, isPending }) =>
                                  isActive ? "active" : isPending ? "pending" : ""
                               }>
-                              <Link to={`contacts/${contact.id}`}>
-                                 {contact.first || contact.last ? (
-                                    <>
-                                       {contact.first} {contact.last}
-                                    </>
-                                 ) : (
-                                    <i>No Name</i>
-                                 )}{" "}
-                                 {contact.favorite && <span>★</span>}
-                              </Link>
+                              {/* <Link to={`contacts/${contact.id}`}> */}
+                              {contact.first || contact.last ? (
+                                 <>
+                                    {contact.first} {contact.last}
+                                 </>
+                              ) : (
+                                 <i>No Name</i>
+                              )}{" "}
+                              {contact.favorite && <span>★</span>}
+                              {/* </Link> */}
                            </NavLink>
                         </li>
                      ))}
