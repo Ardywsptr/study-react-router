@@ -33,7 +33,12 @@ export default function Root() {
             <h1>React Router Contacts</h1>
             <div>
                <Form id="search-form" role="search">
-                  <input id="q" className={searching ? "loading" : ""} aria-label="Search contacts" placeholder="Search" type="search" name="q" defaultValue={q} onChange={(e) => submit(e.currentTarget.form)} />
+                  <input id="q" className={searching ? "loading" : ""} aria-label="Search contacts" placeholder="Search" type="search" name="q" defaultValue={q} onChange={(e) => {
+                     const isFirstSearch = q == null;
+                     submit(e.currentTarget.form, {
+                        replace: !isFirstSearch
+                     });
+                  }} />
                   <div id="search-spinner" aria-hidden hidden={!searching} />
                   <div className="sr-only" aria-live="polite"></div>
                </Form>
